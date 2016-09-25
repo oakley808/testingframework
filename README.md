@@ -1,4 +1,5 @@
-# This is a repository used for training purposes to walk through the creation of a API and UI Automated Test Framework.  This readme covers Day - 0 in which it just provides a project from which you can follow along with during the meetup or through the videos to create your own framework.
+# Overview 
+This is a repository used for training purposes to walk through the creation of a API and UI Automated Test Framework.  This readme covers Day - 0 in which it just provides a project from which you can follow along with during the meetup or through the videos to create your own framework.
 
 We will store the work done throughout the days of working on this framework in separate branches in Git.  So if you wish to skip ahead to a given day just check it out with one of the following commands:
 
