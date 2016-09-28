@@ -172,6 +172,12 @@ Now that you are all installed, we are going to run through a series of quick ch
 ## Making Sure You Can Start the Selenium Server
 
 From the main repository directory run this command.  If set up correctly this command will run until you stop it with "ctrl-c".
+
+### Windows Command
+```
+start_server_win.bat
+```
+### Mac/Linux Command
 ```
 java -jar drivers/selenium-server-standalone.jar
 ```
@@ -213,8 +219,24 @@ The most common explanation for this is that the selenium server is not running.
 
 If the browser opens but nothing else happens and you are using Firefox then there was probably a new version Firefox released.  Selenium and Firefox have a complicated relationship, in that whenever a new FF version is released it tends to not work until a new Selenium Server is released.  There are a few potential solutions to this.
 
-1. Downgrade Firefox to a known working version
-2. Switch to running your tests in chrome
+1. Switch to running your tests in chrome
+2. Downgrade Firefox to a known working version
+
+
+### Run your tests in chrome instead of firefox
+
+You can change which browser you are running by changing the BROWSEr environment variable using the below commands:
+
+Windows
+```
+set BROWSER=chrome
+mocha ui-fw-tests-prebuilt/basic_test.js
+```
+
+Mac/Linux
+```
+BROWSER=chrome mocha ui-fw-tests-prebuilt/basic_test.js
+```
 
 ### Set Firefox to not auto update and downgrade yours to a few versions back
 
