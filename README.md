@@ -1,10 +1,10 @@
-# Overview 
+# Overview
 This is a repository used for training purposes to walk through the creation of a API and UI Automated Test Framework.  This readme covers Day - 0 in which it just provides a project from which you can follow along with during the meetup or through the videos to create your own framework.
 
 We will store the work done throughout the days of working on this framework in separate branches in Git.  So if you wish to skip ahead to a given day just check it out with one of the following commands:
 
 git checkout day1
-git checkout day2 
+git checkout day2
 etc...
 
 Otherwise please follow the below instructions to install any necessary tools and check that everything you need is installed and in working condition.
@@ -69,6 +69,45 @@ npm install -g mocha
 
 This should work, for windows users you might have to run this command from a Git Bash command prompt.  But should try from a standard command prompt first regardless.
 
+## ChromeDriver
+
+In building out the UI portion of the framework we will be working with Firefox and Chrome, firefox support is native to webdriver.io but frequently has issues when a new version of firefox is out.  Chrome works better but requires the user to have the chromedriver installed.
+
+You can install the chromedriver through NPM like mocha with this command.
+
+npm install -g chromedriver
+
+Once installed check that you can reach it from the command line with this command.
+
+chromedriver -v
+
+## Selecting an IDE
+
+The final and arguably most important thing you'll need to create a framework is an IDE in which to do your coding.  There are numerous IDEs available for programming in JavaScript/Node all with various advantages.  I've listed them out below.  For the demonstration I will be using Atom, but only because I am most familiar with it, IntelliJ and Visual Studio Code are arguably better IDEs with more features.  But try them out and choose whichever you find most inuitive.
+
+### IntelliJ/WebStorm
+
+Webstorm is IntelliJs JavaScript/Node offering, and it has the deepest feature set and is probably the best choice.  The catch of course is that you need a license.   You can download a 30 day trial to see if its worth your while.
+
+https://www.jetbrains.com/webstorm/
+
+### Visual Studio Code
+
+If you are a C# developer or familiar with MicroSofts Visual studio, then visual studio code will be a great choice.  It has built in Git integration and a smart intellisense code completion/hint feature.  It's also free, so there's that.
+
+https://code.visualstudio.com/
+
+### Atom
+
+Atom is an all purpose IDE with plugins to support any language.  It's open source and if you install the right plugins can be very helpful.  The downside is you have to install and configure everything to get it the way you want it.
+
+https://atom.io/
+
+If you choose Atom I would recommend installing these plugins (called packages) through the settings->install menu.
+
+language-js-specs - Will turn on syntax highlighting for JavaScript
+jshint - Will turn on identification of coding errors
+
 # Getting Set Up
 
 That wasn't so bad was it?  Now that you have all the tools necessary installed lets download and install the basic project that we will be creating our framework in.
@@ -95,6 +134,24 @@ Once you have cloned the repository down installing is a breeze.  Just run the b
 
 npm install
 
+# Getting Updated
+
+Throughout the building of the framework we may add changes to certain branches, so if you are revisiting this after a delay consider pulling the latest changes before going further.
+
+## Updating Day 0 command
+
+git fetch
+
+git pull origin master
+
+## Updating Other Days
+
+git fetch
+
+git checkout <branch for day you want>
+
+git pull origin <branch for day you want>
+
 # Checking If It Works
 
 Now that you are all installed, we are going to run through a series of quick checks to make sure everything works as expected.
@@ -103,7 +160,7 @@ Now that you are all installed, we are going to run through a series of quick ch
 
 From the main repository directory run this command.  If set up correctly this command will run until you stop it with "ctrl-c".
 
-java -jar drivers/selenium-server-standalone-2.53.0.jar
+java -jar drivers/selenium-server-standalone.jar
 
 If you successfully start the server, leave it running for the next steps and instead open a new terminal/prompt for the following steps.
 
@@ -129,3 +186,39 @@ mocha ui-fw-tests-prebuilt/basic_test.js
 # TroubleShooting and FAQ
 
 We will update this section as we get feedback from people trying to follow these steps.  If you have any issues feel free to reach out to me through the West Denver Test Engineering Meetup discussion board and I will help to the best of my ability.
+
+http://www.meetup.com/West-Denver-Software-Test-Engineering-Meetup/
+
+
+## I run the simple test and no browser opens
+
+The most common explanation for this is that the selenium server is not running.  Double check that your server you started in a previous step is still running.  If it is still running check the output from when you ran a test and you might see additional clues as to whats causing the failure.
+
+## I run the simple test and a browser opens but no page is loaded
+
+If the browser opens but nothing else happens and you are using Firefox then there was probably a new version Firefox released.  Selenium and Firefox have a complicated relationship, in that whenever a new FF version is released it tends to not work until a new Selenium Server is released.  There are a few potential solutions to this.
+
+1. Downgrade firefox to a known working version
+2. Switch to running your tests in chrome
+
+### Set Firefox to not auto update and downgrade yours to a few versions back
+
+To turn off auto updating you can usually go paste this url into your firefox browser: "about:preferences#advanced" and change your settings there.
+
+To downgrade to an older version of firefox you can go to the below link based on your OS.  If you want to choose exactly which version/OS you want you can use the further below link.
+
+#### Windows (64 bit) Firefox 46.01
+
+https://ftp.mozilla.org/pub/firefox/releases/46.0.1/win64/en-US/
+
+#### Windows (32 bit) Firefox 46.01
+
+https://ftp.mozilla.org/pub/firefox/releases/46.0.1/win32/en-US/
+
+#### Mac Firefox 46.01
+
+https://ftp.mozilla.org/pub/firefox/releases/46.0.1/mac/en-US/
+
+#### Linux (64 bit) Firefox 46.01
+
+https://ftp.mozilla.org/pub/firefox/releases/46.0.1/linux-x86_64/en-US/

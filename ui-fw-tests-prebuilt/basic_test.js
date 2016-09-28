@@ -3,13 +3,14 @@ var expect = require('chai').expect;
 var EbayHome = require('./pages/ebay_home');
 var PageObjectScope = require('./lib/page_object_scope');
 var driver;
+var browser = process.env.BROWSER || 'firefox';
 var options = {
     desiredCapabilities: {
-        browserName: 'firefox'
+        browserName: browser
     }
 };
 
-describe('Initial Firefox Test', function() {
+describe('Initial Test', function() {
   this.timeout(20000);
 
   beforeEach(function(done) {
