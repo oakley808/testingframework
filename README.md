@@ -2,10 +2,11 @@
 This is a repository used for training purposes to walk through the creation of a API and UI Automated Test Framework.  This readme covers Day - 0 in which it just provides a project from which you can follow along with during the meetup or through the videos to create your own framework.
 
 We will store the work done throughout the days of working on this framework in separate branches in Git.  So if you wish to skip ahead to a given day just check it out with one of the following commands:
-
+```
 git checkout day1
 git checkout day2
 etc...
+```
 
 Otherwise please follow the below instructions to install any necessary tools and check that everything you need is installed and in working condition.
 
@@ -40,9 +41,9 @@ https://sourceforge.net/projects/git-osx-installer/
 ## Node & NPM
 
 We will be writing the framework using Node.js alongside its package manager NPM.  Both of these are usually installed together.  To check if you already have node installed use the below command in a command/terminal prompt.
-
+```
 node --version
-
+```
 ### Installing Node & NPM on a windows or mac machine
 
 Follow the below link and choose the appropriate installer for the windows/mac machine you are using.  Follow the instructions to install.
@@ -52,9 +53,9 @@ https://nodejs.org/en/download/
 ## Java
 
 While we will not be coding in Java we will need java to run the selenium server.  It is very likely you already have Java installed but to check run the below command in your terminal/command prompt.
-
+```
 java -version
-
+```
 ### Windows & Mac & Linux
 
 The below link should have information for all 3 operating systems to install the Java JDK on your machine.
@@ -64,18 +65,20 @@ The below link should have information for all 3 operating systems to install th
 Mocha is a test harness we will use to run our actual tests once we've written them.  To ensure fewer issues we are recommending that mocha be installed through NPM.  It will also be installed locally as part of the set up section below, but please follow this step as well after you've installed Node & NPM.
 
 In a command/terminal prompt run this command:
-
+```
 npm install -g mocha
-
+```
 This should work, for windows users you might have to run this command from a Git Bash command prompt.  But should try from a standard command prompt first regardless.
 
 ## ChromeDriver
 
-In building out the UI portion of the framework we will be working with Firefox and Chrome, firefox support is native to webdriver.io but frequently has issues when a new version of firefox is out.  Chrome works better but requires the user to have the chromedriver installed.
+In building out the UI portion of the framework we will be working with Firefox and Chrome, Firefox support is native to webdriver.io but frequently has issues when a new version of Firefox is out.  Chrome works better but requires the user to have the chromedriver installed.
 
 You can install the chromedriver through NPM like mocha with this command.
 
 npm install -g chromedriver
+
+*Note: if this command fails on a mac/linux you may have to add sudo before it*
 
 Once installed check that you can reach it from the command line with this command.
 
@@ -83,11 +86,11 @@ chromedriver -v
 
 ## Selecting an IDE
 
-The final and arguably most important thing you'll need to create a framework is an IDE in which to do your coding.  There are numerous IDEs available for programming in JavaScript/Node all with various advantages.  I've listed them out below.  For the demonstration I will be using Atom, but only because I am most familiar with it, IntelliJ and Visual Studio Code are arguably better IDEs with more features.  But try them out and choose whichever you find most inuitive.
+The final and arguably most important thing you'll need to create a framework is an IDE in which to do your coding.  There are numerous IDEs available for programming in JavaScript/Node all with various advantages.  I've listed them out below.  For the demonstration I will be using Atom, but only because I am most familiar with it, IntelliJ and Visual Studio Code are arguably better IDEs with more features.  But try them out and choose whichever you find most intuitive.
 
 ### IntelliJ/WebStorm
 
-Webstorm is IntelliJs JavaScript/Node offering, and it has the deepest feature set and is probably the best choice.  The catch of course is that you need a license.   You can download a 30 day trial to see if its worth your while.
+Webstorm is IntelliJ's JavaScript/Node offering, and it has the deepest feature set and is probably the best choice.  The catch of course is that you need a license.   You can download a 30 day trial to see if its worth your while.
 
 https://www.jetbrains.com/webstorm/
 
@@ -99,7 +102,7 @@ https://code.visualstudio.com/
 
 ### Atom
 
-Atom is an all purpose IDE with plugins to support any language.  It's open source and if you install the right plugins can be very helpful.  The downside is you have to install and configure everything to get it the way you want it.
+Atom is an all-purpose IDE with plugins to support any language.  It's open source and if you install the right plugins can be very helpful.  The downside is you have to install and configure everything to get it the way you want it.
 
 https://atom.io/
 
@@ -117,41 +120,51 @@ Inside your terminal (mac) or git bash (windows) prompt decide on a good directo
 ## Mac and Windows (using git bash prompt)
 
 Go to your home directory
-"cd ~"
+```
+cd ~
+```
 Create a new directory called git
-"mkdir git"
+```
+mkdir git
+```
 Navigate to the new directory
-"cd git"
+```
+cd git
+```
 Now clone the meetup project:
-"git clone https://github.com/mustarddemon/westdenvermeetupfw.git"
+```
+git clone https://github.com/mustarddemon/westdenvermeetupfw.git
+```
 Navigate into the repository created from the previous command:
-"cd westdenvermeetupfw/"
-It's that simple.  Now all we have to do is installit
+```
+cd westdenvermeetupfw/
+```
+It's that simple.  Now all we have to do is install it
 
 # Getting Installed
 
 Once you have cloned the repository down installing is a breeze.  Just run the below command from inside the repository and it will install everything else you need.
-
+```
 npm install
-
+```
 # Getting Updated
 
 Throughout the building of the framework we may add changes to certain branches, so if you are revisiting this after a delay consider pulling the latest changes before going further.
 
 ## Updating Day 0 command
-
+```
 git fetch
 
 git pull origin master
-
+```
 ## Updating Other Days
-
+```
 git fetch
 
 git checkout <branch for day you want>
 
 git pull origin <branch for day you want>
-
+```
 # Checking If It Works
 
 Now that you are all installed, we are going to run through a series of quick checks to make sure everything works as expected.
@@ -159,9 +172,9 @@ Now that you are all installed, we are going to run through a series of quick ch
 ## Making Sure You Can Start the Selenium Server
 
 From the main repository directory run this command.  If set up correctly this command will run until you stop it with "ctrl-c".
-
+```
 java -jar drivers/selenium-server-standalone.jar
-
+```
 If you successfully start the server, leave it running for the next steps and instead open a new terminal/prompt for the following steps.
 
 ## Start The Test API Server
@@ -177,11 +190,13 @@ Once you've verified the server you can cancel the command from step 1 with ctrl
 
 ## Run A Very Simple UI Test
 
-This is the final step.  Run the below command to kick off 2 very simple tests.  The first should open a firefox browser and go to google.  The 2nd should open a firefox browser and do a search for New Camera on ebay.  If both of these happen you are 100% ready to build your own framework!
+This is the final step.  Run the below command to kick off 2 very simple tests.  The first should open a Firefox browser and go to google.  The 2nd should open a Firefox browser and do a search for New Camera on eBay.  If both of these happen you are 100% ready to build your own framework!
 
 Test Command
 
+```
 mocha ui-fw-tests-prebuilt/basic_test.js
+```
 
 # TroubleShooting and FAQ
 
@@ -198,14 +213,14 @@ The most common explanation for this is that the selenium server is not running.
 
 If the browser opens but nothing else happens and you are using Firefox then there was probably a new version Firefox released.  Selenium and Firefox have a complicated relationship, in that whenever a new FF version is released it tends to not work until a new Selenium Server is released.  There are a few potential solutions to this.
 
-1. Downgrade firefox to a known working version
+1. Downgrade Firefox to a known working version
 2. Switch to running your tests in chrome
 
 ### Set Firefox to not auto update and downgrade yours to a few versions back
 
-To turn off auto updating you can usually go paste this url into your firefox browser: "about:preferences#advanced" and change your settings there.
+To turn off auto updating you can usually go paste this url into your Firefox browser: "about:preferences#advanced" and change your settings there.
 
-To downgrade to an older version of firefox you can go to the below link based on your OS.  If you want to choose exactly which version/OS you want you can use the further below link.
+To downgrade to an older version of Firefox you can go to the below link based on your OS.  If you want to choose exactly which version/OS you want you can use the further below link.
 
 #### Windows (64 bit) Firefox 46.01
 

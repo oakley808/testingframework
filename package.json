@@ -26,6 +26,7 @@
 		"dateformat": "1.0.12",
 		"node-uuid": "1.4.7",
 		"webdriverio": "4.2.15",
-		"selenium-server": "2.53.1"
+		"selenium-server": "2.53.1",
+		"chromedriver": "2.24.1"
 	}
 }
